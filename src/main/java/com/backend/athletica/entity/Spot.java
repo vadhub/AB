@@ -24,17 +24,20 @@ public class Spot {
     @Column(name = "description")
     private String description;
 
-    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
-    @JoinColumn(name = "spot_id")
-    private List<Review> reviews;
+    @Column(name = "address")
+    private String address;
 
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinColumn(name = "spot_id")
     private List<Slot> slots;
 
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
+    @JoinColumn(name = "spot_id")
+    private List<Review> reviews;
+
     public Spot() {}
 
-    public Spot(Long id, String name, String lat, String lon, String description, List<Review> reviews, List<Slot> slots) {
+    public Spot(Long id, String name, String lat, String lon, String description, String address, List<Review> reviews, List<Slot> slots) {
         this.id = id;
         this.name = name;
         this.lat = lat;
@@ -42,15 +45,17 @@ public class Spot {
         this.description = description;
         this.reviews = reviews;
         this.slots = slots;
+        this.address = address;
     }
 
-    public Spot(String name, String lat, String lon, String description, List<Review> reviews, List<Slot> slots) {
+    public Spot(String name, String lat, String lon, String description, String address, List<Review> reviews, List<Slot> slots) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
         this.description = description;
         this.reviews = reviews;
         this.slots = slots;
+        this.address = address;
     }
 
     public Long getId() {
@@ -107,5 +112,13 @@ public class Spot {
 
     public void setSlots(List<Slot> slots) {
         this.slots = slots;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

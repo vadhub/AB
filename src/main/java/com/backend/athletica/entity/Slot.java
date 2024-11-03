@@ -24,7 +24,7 @@ public class Slot {
     public Slot() {
     }
 
-    public Slot(Long id, Date startTime, Date endTime, int availability) {
+    public Slot(Long id, Date startTime, Date endTime, String address, int availability) {
         this.id = id;
         this.startTime = startTime;
         this.endTime = endTime;
