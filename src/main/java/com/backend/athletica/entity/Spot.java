@@ -29,7 +29,7 @@ public class Spot {
 
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinColumn(name = "spot_id")
-    private List<Slot> slots;
+    private List<TimeSlot> timeSlots;
 
     @OneToMany(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.PERSIST})
     @JoinColumn(name = "spot_id")
@@ -37,24 +37,24 @@ public class Spot {
 
     public Spot() {}
 
-    public Spot(Long id, String name, String lat, String lon, String description, String address, List<Review> reviews, List<Slot> slots) {
+    public Spot(Long id, String name, String lat, String lon, String description, String address, List<Review> reviews, List<TimeSlot> timeSlots) {
         this.id = id;
         this.name = name;
         this.lat = lat;
         this.lon = lon;
         this.description = description;
         this.reviews = reviews;
-        this.slots = slots;
+        this.timeSlots = timeSlots;
         this.address = address;
     }
 
-    public Spot(String name, String lat, String lon, String description, String address, List<Review> reviews, List<Slot> slots) {
+    public Spot(String name, String lat, String lon, String description, String address, List<Review> reviews, List<TimeSlot> timeSlots) {
         this.name = name;
         this.lat = lat;
         this.lon = lon;
         this.description = description;
         this.reviews = reviews;
-        this.slots = slots;
+        this.timeSlots = timeSlots;
         this.address = address;
     }
 
@@ -106,12 +106,12 @@ public class Spot {
         this.reviews = reviews;
     }
 
-    public List<Slot> getSlots() {
-        return slots;
+    public List<TimeSlot> getTimeSlots() {
+        return timeSlots;
     }
 
-    public void setSlots(List<Slot> slots) {
-        this.slots = slots;
+    public void setTimeSlots(List<TimeSlot> timeSlots) {
+        this.timeSlots = timeSlots;
     }
 
     public String getAddress() {

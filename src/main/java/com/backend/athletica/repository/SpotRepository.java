@@ -8,5 +8,5 @@ import java.util.Optional;
 
 @RepositoryRestResource(excerptProjection = SpotWithSlotsProjection.class)
 public interface SpotRepository extends JpaRepository<Spot, Long> {
-    Optional<Spot> findByLatAndLon(String lat, String lon);
+    Optional<SpotWithSlotsProjection> findByLatAndLon(String lat, String lon);
 }
